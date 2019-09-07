@@ -10,13 +10,3 @@ variable "amis" {
     "us-west-2" = "ami-4b32be2b"
   }
 }
-
-
-variable "amis" {
-  type = "map"
-  default = {
-    "us-east-2" = "ami-05c1fa8df71875112"
-    "us-east-1" = "ami-b374d5a5"
-    "us-west-2" = "ami-4b32be2b"
-  }
-}
