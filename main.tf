@@ -4,7 +4,7 @@ provider "aws" {
 }
 
 resource "aws_instance" "ubuntu" {
-  ami           = var.amis-ubuntu[var.region]
+  ami           = var.amis[var.region]
   instance_type = "t2.micro"
   tags          = { Name = "ubuntu-slave" }
 
@@ -14,7 +14,7 @@ resource "aws_instance" "ubuntu" {
 }
 
 resource "aws_instance" "amazon_linux" {
-  ami           = var.amis-linux[var.region]
+  ami           = var.amis[var.region]
   instance_type = "t2.micro"
   tags          = { Name = "amazon-slave" }
 }
