@@ -9,7 +9,7 @@ resource "aws_instance" "ubuntu" {
   tags          = { Name = "ubuntu-slave" }
 }
 
-resource "aws_instance" "amazon linuxß" {
+resource "aws_instance" "amazon_linux" {
   ami           = "ami-0c64dd618a49aeee8"
   instance_type = "t2.micro"
   tags          = { Name = "amazon-slave" }
