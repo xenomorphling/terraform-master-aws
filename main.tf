@@ -1,4 +1,4 @@
-kprovider "aws" {
+provider "aws" {
   profile = "default"
   region = var.region
 }
