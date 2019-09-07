@@ -9,7 +9,7 @@ resource "aws_instance" "ubuntu" {
   tags          = { Name = "ubuntu-slave" }
 
   provisioner "local-exec" {
-    command = "echo ${aws_instance + aws_instance.ubuntu.public_ip} > ip_address.txt"
+    command = "echo ${aws_instance.Name + aws_instance.ubuntu.public_ip} > ip_address.txt"
   }
 }
 
