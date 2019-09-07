@@ -3,13 +3,13 @@ provider "aws" {
   region = "us-east-2"
 }
 
-resource "aws_instance" "example" {
+resource "aws_instance" "ubuntu" {
   ami           = "ami-05c1fa8df71875112"
   instance_type = "t2.micro"
   tags          = { Name = "ubuntu-slave" }
 }
 
-resource "aws_instance" "example" {
+resource "aws_instance" "amazon linuxß" {
   ami           = "ami-0c64dd618a49aeee8"
   instance_type = "t2.micro"
   tags          = { Name = "amazon-slave" }
