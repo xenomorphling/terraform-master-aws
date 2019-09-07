@@ -1,10 +1,10 @@
 provider "aws" {
   profile = "default"
-  region = "us-east-2"
+  region = var.region
 }
 
 resource "aws_instance" "ubuntu" {
-  ami           = "ami-05c1fa8df71875112"
+  ami           = var.amis-ubuntu[var.region]
   instance_type = "t2.micro"
   tags          = { Name = "ubuntu-slave" }
 
@@ -14,7 +14,7 @@ resource "aws_instance" "ubuntu" {
 }
 
 resource "aws_instance" "amazon_linux" {
-  ami           = "ami-0c64dd618a49aeee8"
+  ami           = var.amis-linux[var.region]
   instance_type = "t2.micro"
   tags          = { Name = "amazon-slave" }
 }
