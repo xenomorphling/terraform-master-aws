@@ -1,6 +1,6 @@
 region = "us-east-2"
 
-variable "amis-linux" {
+variable "amis" {
   type = "map"
   default = {
     "us-east-2" = "ami-0c64dd618a49aeee8"
@@ -10,7 +10,7 @@ variable "amis-linux" {
 }
 
 
-variable "amis-ubuntu" {
+variable "amis" {
   type = "map"
   default = {
     "us-east-2" = "ami-05c1fa8df71875112"
