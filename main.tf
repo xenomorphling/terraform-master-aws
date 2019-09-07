@@ -7,9 +7,9 @@ resource "aws_instance" "ubuntu" {
   ami           = "ami-05c1fa8df71875112"
   instance_type = "t2.micro"
   tags          = { Name = "ubuntu-slave" }
-  
+
   provisioner "local-exec" {
-    command = "echo ${aws_instance.example.public_ip} > ip_address.txt"
+    command = "echo ${aws_instance.ubuntu.public_ip} > ip_address.txt"
   }
 }
 
