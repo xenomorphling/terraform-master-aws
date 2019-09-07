@@ -9,7 +9,7 @@ resource "aws_instance" "ubuntu" {
   tags          = { Name = "ubuntu-slave" }
 
   provisioner "local-exec" {
-    command = "echo ${aws_instance.ubuntu.public_ip} > ip_address.txt"
+    command = "echo ${aws_instance.tags.Name aws_instance.ubuntu.public_ip} > ip_address.txt"
   }
 }
 
@@ -17,6 +17,10 @@ resource "aws_instance" "amazon_linux" {
   ami           = var.amis-linux[var.region]
   instance_type = "t2.micro"
   tags          = { Name = "amazon-slave" }
+
+  provisioner "local-exec" {
+    command = "echo ${aws_instance.ubuntu.public_ip} > ip_address.txt"
+  }
 }
 
 # resource "aws_eip" "ip" {
