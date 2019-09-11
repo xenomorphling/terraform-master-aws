@@ -19,7 +19,3 @@ variable "amis-linux" {
     "us-west-2" = "ami-4b32be2b"
   }
 }
-//
-//output "ip" {
-//  value = aws_eip.ip.public_ip
-//}

@@ -23,7 +23,10 @@ resource "aws_instance" "amazon_linux" {
   }
 }
 
-
+module "consul" {
+  source      = "hashicorp/consul/aws"
+  num_servers = "3"
+}
 
 # resource "aws_eip" "ip" {
 #     vpc = true
