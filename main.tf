@@ -21,7 +21,7 @@ resource "aws_instance" "ubuntu" {
 resource "aws_instance" "suse" {
   ami           = var.amis-suse[var.region]
   instance_type = "t2.micro"
-  tags          = { Name = "ubuntu-slave" }
+  tags          = { Name = "suse-slave" }
   count         = 5
 
 //  provisioner "local-exec" {
