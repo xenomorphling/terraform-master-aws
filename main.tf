@@ -20,7 +20,7 @@ resource "aws_instance" "suse" {
   count         = 5
 
   provisioner "local-exec" {
-    command = "echo ${aws_instance.suse.public_ip} >> ip_address.txt"
+    command = "echo ${aws_instance.suse[count.index]} >> ip_address.txt"
   }
 }
 
