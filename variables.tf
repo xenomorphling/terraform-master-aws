@@ -19,3 +19,11 @@ variable "amis-linux" {
     "us-west-2" = "ami-4b32be2b"
   }
 }
+
+variable "amis-suse" {
+  type = "map"
+  default = {
+    "us-east-2" = "ami-0e0bae59dc35fe89a"
+
+  }
+}
