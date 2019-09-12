@@ -11,6 +11,11 @@ resource "aws_instance" "ubuntu" {
   provisioner "local-exec" {
     command = "echo ${aws_instance.ubuntu.public_ip} > ip_address.txt"
   }
+
+  provisioner "file" {
+    source      = "/etc/ssh/sshd_config"
+    destination = "/etc/ssh/sshd_config"
+  }
 }
 
 resource "aws_instance" "suse" {
