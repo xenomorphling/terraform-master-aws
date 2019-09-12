@@ -19,9 +19,9 @@ resource "aws_instance" "suse" {
   tags          = { Name = "ubuntu-slave" }
   count         = 5
 
-  provisioner "local-exec" {
-    command = "echo ${aws_instance.suse[count.index]} >> ip_address.txt"
-  }
+//  provisioner "local-exec" {
+//    command = "echo ${aws_instance.suse[count.index]} >> ip_address.txt"
+//  }
 }
 
 resource "aws_instance" "amazon_linux" {
