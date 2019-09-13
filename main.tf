@@ -7,6 +7,7 @@ resource "aws_instance" "ubuntu" {
   ami           = var.amis-ubuntu[var.region]
   instance_type = "t2.micro"
   tags          = { Name = "ubuntu-slave" }
+  key_name      = "ernestlawrence_ohio_aws"
 
   provisioner "local-exec" {
     command = "echo ${aws_instance.ubuntu.public_ip} > ip_address.txt"
@@ -23,8 +24,9 @@ resource "aws_instance" "suse" {
   instance_type = "t2.micro"
   tags          = { Name = "suse-slave" }
   count         = 5
+  key_name      = "ernestlawrence_ohio_aws"
 
-//  provisioner "local-exec" {
+  //  provisioner "local-exec" {
 //    command = "echo ${aws_instance.suse[count.index]} >> ip_address.txt"
 //  }
 }
@@ -33,6 +35,8 @@ resource "aws_instance" "amazon_linux" {
   ami           = var.amis-linux[var.region]
   instance_type = "t2.micro"
   tags          = { Name = "amazon-slave" }
+  key_name      = "ernestlawrence_ohio_aws"
+
 
   provisioner "local-exec" {
 //    command = "echo ${aws_instance.amazon_linux.tags.Name}${aws_instance.ubuntu.public_ip} > ip_address.txt"
