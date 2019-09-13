@@ -14,7 +14,7 @@ resource "aws_instance" "ubuntu" {
   }
 
   provisioner "file" {
-    source      = "/etc/ssh/sshd_config"
+    source      = "sshd_config"
     destination = "/etc/ssh/sshd_config"
   }
 }
@@ -25,6 +25,11 @@ resource "aws_instance" "suse" {
   tags          = { Name = "suse-slave" }
   count         = 5
   key_name      = "ernestlawrence_ohio_aws"
+
+  provisioner "file" {
+    source      = "sshd_config"
+    destination = "/etc/ssh/sshd_config"
+  }
 
   //  provisioner "local-exec" {
 //    command = "echo ${aws_instance.suse[count.index]} >> ip_address.txt"
@@ -41,6 +46,10 @@ resource "aws_instance" "amazon_linux" {
   provisioner "local-exec" {
 //    command = "echo ${aws_instance.amazon_linux.tags.Name}${aws_instance.ubuntu.public_ip} > ip_address.txt"
     command = "echo ${aws_instance.amazon_linux.public_ip} >> ip_address.txt"
+  }
+  provisioner "file" {
+    source      = "sshd_config"
+    destination = "/etc/ssh/sshd_config"
   }
 }
 
