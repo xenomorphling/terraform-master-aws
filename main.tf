@@ -39,7 +39,7 @@ provider "aws" {
 resource "aws_instance" "amazon_linux" {
   ami           = var.amis-linux[var.region]
   instance_type = "t2.micro"
-  tags          = { Name = "amazon-slave" }
+  tags          = { Name = "amazon-slave[count.index]" }
   key_name      = "ernestlawrence_ohio_aws"
   count = 5
 
