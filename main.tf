@@ -6,13 +6,17 @@ provider "aws" {
 resource "aws_instance" "ubuntu" {
   ami           = var.amis-ubuntu[var.region]
   instance_type = "t2.micro"
-  tags          = { Name = "ubuntu-slave" }
+  tags          = { Name = "ubuntu[count.index]" }
   key_name      = "ernestlawrence_ohio_aws"
   count         = 3
 
   //  provisioner "local-exec" {
   //    command = "echo ${aws_instance.ubuntu[count.index].public_ip} >> ip_address.txt"
   //  }
+
+  provisioner "local-exec" {
+    command = "echo ${aws_instance.ubuntu[count.index].public_dns} >> ip_address.txt"
+  }
 
   provisioner "file" {
     source      = "sshd_config"
