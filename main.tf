@@ -8,7 +8,7 @@ resource "aws_instance" "ubuntu" {
   instance_type = "t2.micro"
   tags          = { Name = "ubuntu-slave" }
   key_name      = "ernestlawrence_ohio_aws"
-  count         = 2
+  count         = 3
 
   provisioner "local-exec" {
     command = "echo ${aws_instance.ubuntu.public_ip} >> ip_address.txt"
