@@ -11,7 +11,7 @@ resource "aws_instance" "ubuntu" {
   count         = 3
 
   provisioner "local-exec" {
-    command = "echo ${aws_instance.ubuntu.public_ip} >> ip_address.txt"
+    command = "echo ${aws_instance.ubuntu[count.index].public_ip} >> ip_address.txt"
   }
 
   provisioner "file" {
