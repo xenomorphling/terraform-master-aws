@@ -10,9 +10,9 @@ resource "aws_instance" "ubuntu" {
   key_name      = "ernestlawrence_ohio_aws"
   count         = 3
 
-  provisioner "local-exec" {
-    command = "echo ${aws_instance.ubuntu[count.index].public_ip} >> ip_address.txt"
-  }
+//  provisioner "local-exec" {
+//    command = "echo ${aws_instance.ubuntu[count.index].public_ip} >> ip_address.txt"
+//  }
 
   provisioner "file" {
     source      = "sshd_config"
