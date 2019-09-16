@@ -11,7 +11,7 @@ resource "aws_instance" "ubuntu" {
   count         = 2
 
   provisioner "local-exec" {
-    command = "echo ${aws_instance.ubuntu.public_ip} > ip_address.txt"
+    command = "echo ${aws_instance.ubuntu.public_ip} >> ip_address.txt"
   }
 
   provisioner "file" {
@@ -48,11 +48,11 @@ resource "aws_instance" "ubuntu" {
 ////    command = "echo ${aws_instance.amazon_linux.tags.Name}${aws_instance.ubuntu.public_ip} > ip_address.txt"
 //    command = "echo ${aws_instance.amazon_linux[count.index].public_ip} >> ip_address.txt"
 //  }
-  provisioner "file" {
-    source      = "sshd_config"
-    destination = "/etc/ssh/sshd_config"
-  }
-}
+//  provisioner "file" {
+//    source      = "sshd_config"
+//    destination = "/etc/ssh/sshd_config"
+//  }
+//}
 
 
 # resource "aws_eip" "ip" {
