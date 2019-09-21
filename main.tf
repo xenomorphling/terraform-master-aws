@@ -6,7 +6,7 @@ provider "aws" {
 resource "aws_instance" "ubuntu" {
   ami           = var.amis-ubuntu[var.region]
   instance_type = "t2.micro"
-  tags          = { Name = "ubuntu[count.index]" }
+  tags          = { Name = "ubuntu${count.index}" }
   key_name      = "ernestlawrence_ohio_aws"
   count         = 1
 
@@ -15,7 +15,7 @@ resource "aws_instance" "ubuntu" {
   //  }
 
   provisioner "local-exec" {
-    command = "echo ${aws_instance.ubuntu[count.index].public_dns} >> ip_address.txt"
+    command = "echo ${aws_instance.ubuntu.public_dns} >> ip_address.txt"
   }
 
   provisioner "file" {
